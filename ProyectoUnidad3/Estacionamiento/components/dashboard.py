@@ -30,6 +30,13 @@ CLOCK_ICON = """<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strok
   <polyline points="12 6 12 12 16 14"/>
 </svg>"""
 
+WIFI_ON = """<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg>"""
+
+WIFI_OFF = """<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="1" y1="1" x2="23" y2="23"/><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/></svg>"""
+
+CHECK_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>'
+CLOSE_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>'
+
 
 def _read_text(path):
     try:
@@ -71,6 +78,7 @@ def _build_html(plaza1, plaza2, libres, ocupadas, conectado, hora):
 
     conn_text = "CONECTADO" if conectado else "DESCONECTADO"
     conn_cls = "connected" if conectado else "disconnected"
+    conn_icon = WIFI_ON if conectado else WIFI_OFF
 
     data = {
         "plaza1": plaza1,
@@ -132,7 +140,7 @@ def _build_html(plaza1, plaza2, libres, ocupadas, conectado, hora):
         </div>
       </div>
       <div id="conn-status" class="resumen-conexion {conn_cls}">
-        <div class="conexion-icon"></div>
+        <div class="conexion-icon">{conn_icon}</div>
         <span class="conexion-text">{conn_text}</span>
       </div>
     </section>
@@ -155,7 +163,7 @@ def _build_html(plaza1, plaza2, libres, ocupadas, conectado, hora):
         </div>
       </div>
       <div id="plaza1-footer" class="plaza-footer {p1_cls}">
-        <span class="plaza-footer-icon"></span>
+        <span class="plaza-footer-icon">{CHECK_SVG if p1_is_free else (CLOSE_SVG if p1_is_occ else '')}</span>
         <span id="plaza1-status" class="plaza-footer-text">{p1_text}</span>
       </div>
     </section>
@@ -178,7 +186,7 @@ def _build_html(plaza1, plaza2, libres, ocupadas, conectado, hora):
         </div>
       </div>
       <div id="plaza2-footer" class="plaza-footer {p2_cls}">
-        <span class="plaza-footer-icon"></span>
+        <span class="plaza-footer-icon">{CHECK_SVG if p2_is_free else (CLOSE_SVG if p2_is_occ else '')}</span>
         <span id="plaza2-status" class="plaza-footer-text">{p2_text}</span>
       </div>
     </section>
@@ -192,4 +200,4 @@ def _build_html(plaza1, plaza2, libres, ocupadas, conectado, hora):
 
 def render(plaza1=None, plaza2=None, libres=0, ocupadas=0, conectado=False, hora="00:00:00"):
     html = _build_html(plaza1, plaza2, libres, ocupadas, conectado, hora)
-    st.components.v1.html(html, height=680, scrolling=False)
+    st.components.v1.html(html, height=680)
