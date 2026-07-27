@@ -18,11 +18,11 @@ Su objetivo es reducir el tiempo de búsqueda de estacionamiento y contribuir a 
 
 ## Prototipo físico
 
-![Prototipo]([imagenes/prototipo.jpg](https://github.com/user-attachments/assets/3eaacb64-3755-42fc-a895-9f509374a94c))
+![Prototipo](https://github.com/user-attachments/assets/3eaacb64-3755-42fc-a895-9f509374a94c)
 
 ## Dashboard
 
-![Dashboard]([imagenes/dashboard.png](https://github.com/user-attachments/assets/63064e04-9eb0-4eac-a785-28b69f07dad9))
+![Dashboard](https://github.com/user-attachments/assets/63064e04-9eb0-4eac-a785-28b69f07dad9)
 
 ---
 
@@ -95,7 +95,7 @@ Proyecto/
 
 ---
 
-# 📊 Características
+# Características
 
 ✔ Detección automática de ocupación
 
