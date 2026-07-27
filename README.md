@@ -1,12 +1,3 @@
-![Python](https://img.shields.io/badge/Python-3.12-blue)
-
-![ESP32](https://img.shields.io/badge/ESP32-IoT-red)
-
-![MQTT](https://img.shields.io/badge/MQTT-Broker-green)
-
-![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-red)
-
-![License](https://img.shields.io/badge/License-Academic-lightgrey)
 # Sistema M2M Descentralizado para Estacionamiento Ecológico Inteligente
 
 > Prototipo IoT para el monitoreo en tiempo real de plazas de estacionamiento mediante comunicación M2M utilizando ESP32, ESP-NOW, MQTT y Streamlit.
